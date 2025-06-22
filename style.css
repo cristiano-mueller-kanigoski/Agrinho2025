@@ -1,0 +1,162 @@
+   /* --- modo claro/escuro ---*/
+   :root {
+            /* --- Claro --- */
+            --fonte-base: 16px;
+            --cor-texto: #333;
+            --cor-fundo: #fff;
+            --cor-destaque: #045a0f;
+            --cor-menu: rgba(255, 255, 255, 0.95);
+        }
+
+        /* --- Escuro --- */
+        .dark-mode {
+            --cor-texto: #f0f0f0;
+            --cor-fundo: #222;
+            --cor-destaque: #033b0a;
+            --cor-menu: rgba(34, 34, 34, 0.95);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: var(--fonte-base);
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .cabecalho {
+            background-color: var(--cor-destaque);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Menu principal */
+        .menu {
+            background-color: var(--cor-menu);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* --- sombra em baixo do menu flutuante --- */
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .menu.fixo {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            animation: desceMenu 0.3s ease-out;
+        }
+
+        @keyframes desceMenu {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-principal {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .menu a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .menu a:hover {
+            background-color: var(--cor-destaque);
+            color: white;
+        }
+
+        /* Submenu de acessibilidade */
+        .acessibilidade-container {
+            position: relative;
+        }
+
+        .submenu-acessibilidade {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--cor-menu);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 4px 4px;
+            padding: 10px;
+            min-width: 180px;
+            z-index: 101;
+        }
+
+        .submenu-acessibilidade.mostrar {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .submenu-acessibilidade button {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-align: left;
+            color: var(--cor-texto);
+        }
+
+        .submenu-acessibilidade button:hover {
+            background-color: var(--cor-destaque);
+            color: white;
+        }
+        
+        /* Ícone de seta */
+        .seta-submenu {
+            display: inline-block;
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+        
+        .acessibilidade-container.aberto .seta-submenu {
+            transform: rotate(180deg);
+        }
+
+        /* Conteúdo principal */
+        .conteudo {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .conteudo section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .rodape {
+            background-color: var(--cor-destaque);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
